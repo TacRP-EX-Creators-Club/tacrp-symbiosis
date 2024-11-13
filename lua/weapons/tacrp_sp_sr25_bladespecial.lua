@@ -12,6 +12,7 @@ SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "6Marksman Rifle"
 
 SWEP.Description = "SR-25 rechambered for .338 Lapua Magnum, integrally-suppressed and sporting a custom 8x rangefinder scope."
+SWEP.Description_Quote = "\"The are no gods. The only man in the sky, is me.\""
 
 SWEP.Trivia_Caliber = ".338 Lapua Magnum"
 SWEP.Trivia_Manufacturer = "Knight's Armament"
