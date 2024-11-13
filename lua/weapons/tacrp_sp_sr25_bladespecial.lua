@@ -12,7 +12,7 @@ SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "6Marksman Rifle"
 
 SWEP.Description = "SR-25 rechambered for .338 Lapua Magnum, integrally-suppressed and sporting a custom 8x rangefinder scope."
-SWEP.Description_Quote = "\"The are no gods. The only man in the sky, is me.\""
+SWEP.Description_Quote = "\"There are no gods. The only man in the sky, is me.\""
 
 SWEP.Trivia_Caliber = ".338 Lapua Magnum"
 SWEP.Trivia_Manufacturer = "Knight's Armament"
@@ -38,26 +38,6 @@ SWEP.BalanceStats = {
         RecoilKick = 6,
     },
     [TacRP.BALANCE_TTT] = {
-        Damage_Max = 32,
-        Damage_Min = 40,
-        Range_Min = 500,
-        Range_Max = 1800,
-        RPM = 220,
-
-        BodyDamageMultipliers = {
-            [HITGROUP_HEAD] = 2.5,
-            [HITGROUP_CHEST] = 1,
-            [HITGROUP_STOMACH] = 1,
-            [HITGROUP_LEFTARM] = 0.9,
-            [HITGROUP_RIGHTARM] = 0.9,
-            [HITGROUP_LEFTLEG] = 0.75,
-            [HITGROUP_RIGHTLEG] = 0.75,
-            [HITGROUP_GEAR] = 0.9
-        },
-    },
-    [TacRP.BALANCE_PVE] = {
-        Damage_Max = 30,
-        Damage_Min = 14,
     },
 }
 
@@ -65,16 +45,16 @@ SWEP.TTTReplace = TacRP.TTTReplacePreset.MarksmanRifle
 
 // "ballistics"
 
-SWEP.Damage_Max = 50
-SWEP.Damage_Min = 30
-SWEP.Range_Min = 500
-SWEP.Range_Max = 4500
-SWEP.Penetration = 11 // units of metal this weapon can penetrate
-SWEP.ArmorPenetration = 0.725
-SWEP.ArmorBonus = 1.5
+SWEP.Damage_Max = 95
+SWEP.Damage_Min = 60
+SWEP.Range_Min = 1800
+SWEP.Range_Max = 5500
+SWEP.Penetration = 18 // units of metal this weapon can penetrate
+SWEP.ArmorPenetration = 0.9
+SWEP.ArmorBonus = 3
 
 SWEP.BodyDamageMultipliers = {
-    [HITGROUP_HEAD] = 3.5,
+    [HITGROUP_HEAD] = 3,
     [HITGROUP_CHEST] = 1,
     [HITGROUP_STOMACH] = 1.25,
     [HITGROUP_LEFTARM] = 1,
@@ -92,8 +72,8 @@ SWEP.Firemodes = {
     1
 }
 
-SWEP.RPM = 400
-SWEP.RPMMultSemi = 0.75
+SWEP.RPM = 300
+SWEP.RPMMultSemi = 0.7
 
 SWEP.Spread = 0.0002
 
@@ -104,38 +84,38 @@ SWEP.RecoilPerShot = 1
 SWEP.RecoilMaximum = 3
 SWEP.RecoilResetTime = 0.015
 SWEP.RecoilDissipationRate = 12
-SWEP.RecoilFirstShotMult = 0.8
+SWEP.RecoilFirstShotMult = 1
 
 SWEP.RecoilVisualKick = 2.5
-SWEP.RecoilKick = 9
-SWEP.RecoilStability = 0.65
-SWEP.RecoilAltMultiplier = 300
+SWEP.RecoilKick = 14
+SWEP.RecoilStability = 0.55
+SWEP.RecoilAltMultiplier = 200
 
 SWEP.RecoilSpreadPenalty = 0.003
-SWEP.HipFireSpreadPenalty = 0.06
-SWEP.PeekPenaltyFraction = 0.2
+SWEP.HipFireSpreadPenalty = 0.075
+SWEP.PeekPenaltyFraction = 0.15
 
 SWEP.CanBlindFire = true
 
 SWEP.Bipod = true
 SWEP.BipodRecoil = 0.25
-SWEP.BipodKick = 0.25
+SWEP.BipodKick = 0.15
 
 // handling
 
-SWEP.MoveSpeedMult = 0.875
-SWEP.ShootingSpeedMult = 0.5
-SWEP.SightedSpeedMult = 0.5
+SWEP.MoveSpeedMult = 0.85
+SWEP.ShootingSpeedMult = 0.3
+SWEP.SightedSpeedMult = 0.4
 
 SWEP.ReloadSpeedMult = 0.4
 
-SWEP.AimDownSightsTime = 0.44
-SWEP.SprintToFireTime = 0.49
+SWEP.AimDownSightsTime = 0.45
+SWEP.SprintToFireTime = 0.5
 
 SWEP.Sway = 2
 SWEP.ScopedSway = 0.12
 
-SWEP.FreeAimMaxAngle = 6.5
+SWEP.FreeAimMaxAngle = 7.5
 
 // hold types
 
@@ -178,9 +158,10 @@ SWEP.ScopeOverlaySize = 0.85
 // reload
 
 SWEP.ClipSize = 10
-SWEP.Ammo = "ar2"
+SWEP.Ammo = "357"
+SWEP.AmmoTTT = "357"
 
-SWEP.ReloadTimeMult = 1.2
+SWEP.ReloadTimeMult = 1.25
 SWEP.DropMagazineModel = "models/weapons/tacint_extras/magazines/m16a4.mdl"
 SWEP.DropMagazineImpact = "metal"
 
@@ -208,17 +189,17 @@ SWEP.QCA_Muzzle = 1
 // ditto for shell
 SWEP.QCA_Eject = 2
 
-SWEP.MuzzleEffect = "muzzleflash_pistol"
+SWEP.MuzzleEffect = "muzzleflash_suppressed"
 SWEP.EjectEffect = 2
 
 // anims
 
 SWEP.AnimationTranslationTable = {
     ["fire_iron"] = "dryfire",
-    ["fire1"] = "fire3_M",
-    ["fire2"] = "fire4_M",
-    ["fire3"] = "fire4_M",
-    ["fire4"] = "fire5_M",
+    ["fire1"] = "fire4_M",
+    ["fire2"] = "fire5_M",
+    ["fire3"] = {"fire5_M", "fire5_L", "fire5_R"},
+    ["fire4"] = {"fire5_M", "fire5_L", "fire5_R"},
     ["fire5"] = {"fire5_M", "fire5_L", "fire5_R"},
     ["melee"] = {"melee1", "melee2"}
 }
