@@ -1,0 +1,23 @@
+"VertexlitGeneric"
+{
+    "$basetexture"          "models\tacint_shark\weapons\sr25_special\bipod\sr17_c_diff"
+    "$bumpmap"              "models\tacint_shark\weapons\sr25_special\bipod\sr17_c_ddn"
+    "$phongexponenttexture" "models\tacint_shark\weapons\sr25_special\bipod\sr17_c_SPEC"
+
+    "$phong" 			    "0"
+    "$phongboost"			"5"
+    "$phongalbedotint" 	    "1"
+    "$phongalbedoboost"     "12"
+    "$phongfresnelranges"   "[0.8 4 6.2]"
+
+    //"$envmap" 			    "env_cubemap"
+    "$envmaptint" 			"[.3 .3 .25]"
+    "$envmapcontrast"       ".45"
+
+    //"$rimlight"			    "1"
+    "$rimlightexponent"		"100"	
+    "$rimlightboost"		"1"
+    "$rimmask"				"1"
+
+    "$ambientocclusion"     "1"
+}

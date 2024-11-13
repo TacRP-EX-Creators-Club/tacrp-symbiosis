@@ -1,0 +1,21 @@
+"VertexLitGeneric"
+{
+	$basetexture	"models\tacint_shark\weapons\sr25_special\scop\bcpu"
+	$bumpmap	"models\tacint_shark\weapons\sr25_special\scop\bcpu_n"
+	"$phongexponenttexture" "models\tacint_shark\weapons\sr25_special\scop\bcpu_s"
+	"$envmapmask" "models\tacint_shark\weapons\sr25_special\scop\bcpu_s"
+	$normalmapalphaenvmapmask 1
+	
+	"$color2" "[ 2.9 2.9 2.9 ]"
+	"$blendtintbybasealpha" "0"
+	"$phong" "1"
+	"$phongboost" "1"
+	"$phongalbedotint" "2"
+	"$PhongFresnelRanges" "[ 2 5 4 ]"
+//	"$envmap" "env_cubemap"
+//	"$basemapalphaenvmapmask" "1"
+	$envmapfresnel "0.01"
+	$envmaptint "[ .01 .01 .01 ]"
+
+	$nocull 1
+}
