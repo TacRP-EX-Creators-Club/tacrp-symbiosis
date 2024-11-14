@@ -9,7 +9,7 @@ SWEP.AbbrevName = "Symbiosis"
 SWEP.Category = "Tactical RP (Bonus)"
 
 SWEP.SubCatTier = "0Exotic"
-SWEP.SubCatType = "6Marksman Rifle"
+SWEP.SubCatType = "7Sniper Rifle"
 
 SWEP.Description = "SR-25 rechambered for .338 Lapua Magnum, integrally-suppressed and sporting a custom 8x rangefinder scope."
 SWEP.Description_Quote = "\"There are no gods. The only man in the sky, is me.\""
@@ -29,15 +29,42 @@ SWEP.ViewModel = "models/weapons/tacint_shark/v_sr25_bladespecial.mdl"
 SWEP.WorldModel = "models/weapons/tacint_extras/w_sr25.mdl"
 
 SWEP.Slot = 2
+SWEP.SlotAlt = 3
 
 SWEP.BalanceStats = {
     [TacRP.BALANCE_SBOX] = {
-        Damage_Max = 50,
-        Damage_Min = 30,
+        Damage_Max = 60,
+        Damage_Min = 90,
+        Range_Min = 800,
+        Range_Max = 6000,
 
-        RecoilKick = 6,
+        RPM = 200,
+        RecoilKick = 10,
+
+        AimDownSightsTime = 0.48,
+        SprintToFireTime = 0.54,
     },
     [TacRP.BALANCE_TTT] = {
+        Damage_Max = 30,
+        Damage_Min = 52,
+        Range_Min = 500,
+        Range_Max = 3500,
+        RPM = 140,
+        RPMMultSemi = 1,
+        RecoilKick = 10,
+        RecoilDissipationRate = 8,
+        AimDownSightsTime = 0.5,
+        SprintToFireTime = 0.6,
+        BodyDamageMultipliers = {
+            [HITGROUP_HEAD] = 4,
+            [HITGROUP_CHEST] = 1.1,
+            [HITGROUP_STOMACH] = 1,
+            [HITGROUP_LEFTARM] = 1,
+            [HITGROUP_RIGHTARM] = 1,
+            [HITGROUP_LEFTLEG] = 0.675,
+            [HITGROUP_RIGHTLEG] = 0.675,
+            [HITGROUP_GEAR] = 0.6
+        },
     },
 }
 
@@ -45,7 +72,7 @@ SWEP.TTTReplace = TacRP.TTTReplacePreset.MarksmanRifle
 
 // "ballistics"
 
-SWEP.Damage_Max = 95
+SWEP.Damage_Max = 90
 SWEP.Damage_Min = 60
 SWEP.Range_Min = 1800
 SWEP.Range_Max = 5500
@@ -56,7 +83,7 @@ SWEP.ArmorBonus = 3
 SWEP.BodyDamageMultipliers = {
     [HITGROUP_HEAD] = 3,
     [HITGROUP_CHEST] = 1,
-    [HITGROUP_STOMACH] = 1.25,
+    [HITGROUP_STOMACH] = 1.15,
     [HITGROUP_LEFTARM] = 1,
     [HITGROUP_RIGHTARM] = 1,
     [HITGROUP_LEFTLEG] = 0.9,
@@ -64,7 +91,7 @@ SWEP.BodyDamageMultipliers = {
     [HITGROUP_GEAR] = 0.9
 }
 
-SWEP.MuzzleVelocity = 24000
+SWEP.MuzzleVelocity = 29000
 
 // misc. shooting
 
@@ -72,34 +99,34 @@ SWEP.Firemodes = {
     1
 }
 
-SWEP.RPM = 300
-SWEP.RPMMultSemi = 0.7
+SWEP.RPM = 250
+SWEP.RPMMultSemi = 0.8
 
-SWEP.Spread = 0.0002
+SWEP.Spread = 0
 
 SWEP.ShootTimeMult = 0.75
 
 SWEP.RecoilResetInstant = false
 SWEP.RecoilPerShot = 1
 SWEP.RecoilMaximum = 3
-SWEP.RecoilResetTime = 0.015
-SWEP.RecoilDissipationRate = 12
-SWEP.RecoilFirstShotMult = 1
+SWEP.RecoilResetTime = 0.01
+SWEP.RecoilDissipationRate = 10
+SWEP.RecoilFirstShotMult = 0.8
 
-SWEP.RecoilVisualKick = 2.5
-SWEP.RecoilKick = 14
-SWEP.RecoilStability = 0.55
-SWEP.RecoilAltMultiplier = 200
+SWEP.RecoilVisualKick = 1
+SWEP.RecoilKick = 6
+SWEP.RecoilStability = 0.6
+SWEP.RecoilAltMultiplier = 150
 
-SWEP.RecoilSpreadPenalty = 0.003
+SWEP.RecoilSpreadPenalty = 0.005
 SWEP.HipFireSpreadPenalty = 0.075
 SWEP.PeekPenaltyFraction = 0.15
 
 SWEP.CanBlindFire = true
 
 SWEP.Bipod = true
-SWEP.BipodRecoil = 0.25
-SWEP.BipodKick = 0.15
+SWEP.BipodRecoil = 0.35
+SWEP.BipodKick = 0.25
 
 // handling
 
@@ -107,7 +134,7 @@ SWEP.MoveSpeedMult = 0.85
 SWEP.ShootingSpeedMult = 0.3
 SWEP.SightedSpeedMult = 0.4
 
-SWEP.ReloadSpeedMult = 0.4
+SWEP.ReloadSpeedMult = 0.3
 
 SWEP.AimDownSightsTime = 0.45
 SWEP.SprintToFireTime = 0.5
@@ -115,7 +142,7 @@ SWEP.SprintToFireTime = 0.5
 SWEP.Sway = 2
 SWEP.ScopedSway = 0.12
 
-SWEP.FreeAimMaxAngle = 7.5
+SWEP.FreeAimMaxAngle = 8
 
 // hold types
 
@@ -458,17 +485,3 @@ function SWEP.ScopeDraw(self)
 end
 
 ATT.TacticalCrosshairTruePos = true
-
-
-if engine.ActiveGamemode() == "terrortown" then
-    SWEP.AutoSpawnable = false
-    SWEP.Kind = WEAPON_HEAVY
-    SWEP.CanBuy = { ROLE_TRAITOR, ROLE_DETECTIVE }
-    SWEP.EquipMenuData = {
-        type = "Weapon",
-        desc = "Suppressed bolt-action anti-materiel rifle.\n\nBEWARE: May be visible while holstered!",
-    }
-
-    function SWEP:TTTBought(buyer)
-    end
-end
