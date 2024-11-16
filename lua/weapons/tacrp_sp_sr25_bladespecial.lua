@@ -33,7 +33,7 @@ SWEP.SlotAlt = 3
 
 SWEP.BalanceStats = {
     [TacRP.BALANCE_SBOX] = {
-        Damage_Max = 60,
+        Damage_Max = 55,
         Damage_Min = 90,
         Range_Min = 800,
         Range_Max = 6000,
@@ -73,8 +73,8 @@ SWEP.TTTReplace = TacRP.TTTReplacePreset.MarksmanRifle
 // "ballistics"
 
 SWEP.Damage_Max = 90
-SWEP.Damage_Min = 60
-SWEP.Range_Min = 1800
+SWEP.Damage_Min = 55
+SWEP.Range_Min = 1000
 SWEP.Range_Max = 5500
 SWEP.Penetration = 18 // units of metal this weapon can penetrate
 SWEP.ArmorPenetration = 0.9
@@ -83,7 +83,7 @@ SWEP.ArmorBonus = 3
 SWEP.BodyDamageMultipliers = {
     [HITGROUP_HEAD] = 3,
     [HITGROUP_CHEST] = 1,
-    [HITGROUP_STOMACH] = 1.15,
+    [HITGROUP_STOMACH] = 1,
     [HITGROUP_LEFTARM] = 1,
     [HITGROUP_RIGHTARM] = 1,
     [HITGROUP_LEFTLEG] = 0.9,
@@ -91,7 +91,7 @@ SWEP.BodyDamageMultipliers = {
     [HITGROUP_GEAR] = 0.9
 }
 
-SWEP.MuzzleVelocity = 29000
+SWEP.MuzzleVelocity = 28000
 
 // misc. shooting
 
@@ -109,9 +109,9 @@ SWEP.ShootTimeMult = 0.75
 SWEP.RecoilResetInstant = false
 SWEP.RecoilPerShot = 1
 SWEP.RecoilMaximum = 3
-SWEP.RecoilResetTime = 0.01
-SWEP.RecoilDissipationRate = 10
-SWEP.RecoilFirstShotMult = 0.8
+SWEP.RecoilResetTime = 0
+SWEP.RecoilDissipationRate = 9
+SWEP.RecoilFirstShotMult = 1
 
 SWEP.RecoilVisualKick = 1
 SWEP.RecoilKick = 6
@@ -139,10 +139,10 @@ SWEP.ReloadSpeedMult = 0.3
 SWEP.AimDownSightsTime = 0.45
 SWEP.SprintToFireTime = 0.5
 
-SWEP.Sway = 2
+SWEP.Sway = 2.5
 SWEP.ScopedSway = 0.12
 
-SWEP.FreeAimMaxAngle = 8
+SWEP.FreeAimMaxAngle = 9
 
 // hold types
 
