@@ -505,7 +505,7 @@ end
 SWEP.Hook_ToggleTactical = function(wep)
     if !wep.Attachments[1].Installed and !wep.Attachments[3].Installed and IsFirstTimePredicted() then
         wep:SetNWInt("TacRP_ZoomLevel", (wep:GetNWInt("TacRP_ZoomLevel", 0) + 1) % (#lvlmult + 1))
-        wep:EmitSound("tacrp/firemode.wav", 60, 85 + (wep:GetNWInt("TacRP_ZoomLevel", 0) / #lvlmult) * 25, 0.4)
+        wep:EmitSound("tacrp/firemode.wav", 60, 85 + (wep:GetNWInt("TacRP_ZoomLevel", 0) / #lvlmult) * 25, 0.4, CHAN_ITEM)
         return true
     end
 end
