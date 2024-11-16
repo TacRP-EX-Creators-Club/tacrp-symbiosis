@@ -11,7 +11,7 @@ SWEP.Category = "Tactical RP (Bonus)"
 SWEP.SubCatTier = "0Exotic"
 SWEP.SubCatType = "7Sniper Rifle"
 
-SWEP.Description = "SR-25 rechambered for .338 Lapua Magnum, integrally-suppressed and sporting a custom 8x rangefinder scope."
+SWEP.Description = "Integrally suppressed SR-25 rechambered for .338 Lapua Magnum and sporting an adjustable 8x rangefinder scope."
 SWEP.Description_Quote = "\"There are no gods. The only man in the sky, is me.\""
 
 SWEP.Trivia_Caliber = ".338 Lapua Magnum"
@@ -484,4 +484,28 @@ function SWEP.ScopeDraw(self)
     surface.DrawLine(x - s, y + s + ccip_v, x + s, y - s + ccip_v)
 end
 
-ATT.TacticalCrosshairTruePos = true
+SWEP.TacticalCrosshairTruePos = true
+
+
+SWEP.CanToggle = true
+SWEP.CustomTacticalHint = "hint.tac.bladespecial"
+
+local lvlmult = {
+    [1] = 6,
+    [2] = 4,
+    [3] = 2.5,
+}
+
+SWEP.Hook_ModifyMagnification = function(wep, data)
+    if !wep.Attachments[1].Installed and !wep.Attachments[3].Installed and wep:GetNWInt("TacRP_ZoomLevel", 0) > 0 then
+        return lvlmult[wep:GetNWInt("TacRP_ZoomLevel", 0)]
+    end
+end
+
+SWEP.Hook_ToggleTactical = function(wep)
+    if !wep.Attachments[1].Installed and !wep.Attachments[3].Installed and IsFirstTimePredicted() then
+        wep:SetNWInt("TacRP_ZoomLevel", (wep:GetNWInt("TacRP_ZoomLevel", 0) + 1) % (#lvlmult + 1))
+        wep:EmitSound("tacrp/firemode.wav", 60, 85 + (wep:GetNWInt("TacRP_ZoomLevel", 0) / #lvlmult) * 25, 0.4)
+        return true
+    end
+end
