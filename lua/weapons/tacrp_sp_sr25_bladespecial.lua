@@ -26,7 +26,7 @@ Additional assets: Battlestate Games, Treyarch, Crytek, kriboez, cR45h
 ]]
 
 SWEP.ViewModel = "models/weapons/tacint_shark/v_sr25_bladespecial.mdl"
-SWEP.WorldModel = "models/weapons/tacint_extras/w_sr25.mdl"
+SWEP.WorldModel = "models/weapons/tacint_shark/w_sr25_bladespecial.mdl"
 
 SWEP.Slot = 2
 SWEP.SlotAlt = 3
@@ -199,10 +199,10 @@ SWEP.DropMagazineTime = 0.4
 
 // sounds
 
-local path1 = "tacint_extras/sr25/"
+local path1 = "tacint_shark/sr25bladespecial/"
 
 SWEP.Sound_Shoot = "^" .. path1 .. "sr25_fire.wav"
-SWEP.Sound_Shoot_Silenced = path1 .. "sr25_suppressed_fire1.wav"
+SWEP.Sound_Shoot_Silenced = path1 .. "sr25-special-fire01.wav"
 
 SWEP.Silencer = true
 
@@ -310,7 +310,7 @@ SWEP.Attachments = {
         AttachSound = "TacRP/weapons/flashlight_on.wav",
         DetachSound = "TacRP/weapons/flashlight_off.wav",
         Pos_VM = Vector(-3, 0, 18),
-        Pos_WM = Vector(2.4, 16, -1),
+        Pos_WM = Vector(2, 16, -1),
         Ang_VM = Angle(90, 0, 180),
         Ang_WM = Angle(-90, -90, 0),
     },
@@ -355,8 +355,8 @@ local function addsound(name, spath)
     })
 end
 
-addsound("tacint_sr25.Remove_Clip", path1 .. "sr25_magout.wav")
-addsound("tacint_sr25.Insert_Clip", path1 .. "sr25_magin.wav")
+addsound("tacint_sr25.Remove_Clip", path1 .. "m4a1_clipout.wav")
+addsound("tacint_sr25.Insert_Clip", path1 .. "m4a1_clipin.wav")
 addsound("tacint_sr25.Insert_Clip-mid", path1 .. "sr25_magslap.wav")
 addsound("tacint_sr25.bolt_action", path1 .. "m4a1_boltpull.wav")
 addsound("tacint_sr25.Bolt_Back", path1 .. "sr25_charginghandle_back.wav")
