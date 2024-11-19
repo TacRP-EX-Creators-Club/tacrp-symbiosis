@@ -189,7 +189,7 @@ SWEP.Ammo = "357"
 SWEP.AmmoTTT = "357"
 
 SWEP.ReloadTimeMult = 1.25
-SWEP.DropMagazineModel = "models/weapons/tacint_extras/magazines/m16a4.mdl"
+SWEP.DropMagazineModel = "models/weapons/tacint_shark/magazines/sr25_bladespecial.mdl"
 SWEP.DropMagazineImpact = "metal"
 
 SWEP.DeployTimeMult = 1.3
