@@ -509,3 +509,59 @@ SWEP.Hook_ToggleTactical = function(wep)
         return true
     end
 end
+
+local offset_pos = Vector(-7.95, -0.1, -1.7)
+local offset_ang = Angle(180, -90, 0)
+local text_color = Color(125, 75, 125)
+
+DEFINE_BASECLASS(SWEP.Base)
+function SWEP:PostDrawViewModel()
+    BaseClass.PostDrawViewModel(self)
+
+    if !self.Attachments[1].Installed and !self:IsInScope() then
+        local mdl = self:GetVM()
+        local boneindex = mdl:LookupBone("ValveBiped.m4_rootbone")
+        if !boneindex then return end
+        local bonemat = mdl:GetBoneMatrix(boneindex)
+        if !bonemat then return end
+        local apos, aang
+        apos = bonemat:GetTranslation()
+        aang = bonemat:GetAngles()
+
+        if offset_pos then
+            apos:Add(aang:Forward() * offset_pos.x)
+            apos:Add(aang:Right() * offset_pos.y)
+            apos:Add(aang:Up() * offset_pos.z)
+        end
+
+        if offset_ang then
+            aang:RotateAroundAxis(aang:Right(), offset_ang.p)
+            aang:RotateAroundAxis(aang:Up(), offset_ang.y)
+            aang:RotateAroundAxis(aang:Forward(), offset_ang.r)
+        end
+
+        cam.IgnoreZ(true)
+        cam.Start3D2D(apos, aang, 0.008)
+            draw.SimpleText(string.format("%04d", math.min(self:GetNWInt("TacRP_Kills", 0), 9999)), "TacRP_HD44780A00_5x8_8", 0, 0, text_color, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+        cam.End3D2D()
+        cam.IgnoreZ(false)
+    end
+end
+
+hook.Add("PlayerDeath", "TacRP_SR25_KillTracking", function(victim, inflictor, attacker)
+    if attacker:IsPlayer() and attacker == inflictor then
+        inflictor = attacker:GetActiveWeapon()
+    end
+    if attacker:IsPlayer() and IsValid(inflictor) and inflictor:GetClass() == "tacrp_sp_sr25_bladespecial" then
+        inflictor:SetNWInt("TacRP_Kills", inflictor:GetNWInt("TacRP_Kills", 0) + 1)
+    end
+end)
+
+hook.Add("OnNPCKilled", "TacRP_SR25_KillTracking", function(npc, attacker, inflictor)
+    if attacker:IsPlayer() and attacker == inflictor then
+        inflictor = attacker:GetActiveWeapon()
+    end
+    if attacker:IsPlayer() and IsValid(inflictor) and inflictor:GetClass() == "tacrp_sp_sr25_bladespecial" then
+        inflictor:SetNWInt("TacRP_Kills", inflictor:GetNWInt("TacRP_Kills", 0) + 1)
+    end
+end)
