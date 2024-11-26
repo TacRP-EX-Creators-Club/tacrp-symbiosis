@@ -1,14 +1,15 @@
 "VertexlitGeneric"
 {
 	$basetexture	"models\tacint_shark\weapons\sr25_special\scop\kaki_02"
-	"$selfillum" "1"
-	$selfillummask	"models\tacint_shark\weapons\sr25_special\scop\noise"
+	"$selfillum" "0"
+	//$selfillummask	"models\tacint_shark\weapons\sr25_special\scop\noise"
 
-	$detail "models\tacint_shark\weapons\sr25_special\scop\noise"
+	//$detail "models\tacint_shark\weapons\sr25_special\scop\noise"
 	$detailscale	2
-	$detailblendmode	2
+	//$detailblendmode	2
 	$detailblendfactor	1
 	$normalmapalphaenvmapmask   	1
+	"$color2" "[ 0 0 0 ]"
 
 	Proxies
 	{
