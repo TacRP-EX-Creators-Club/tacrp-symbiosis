@@ -1,3 +1,6 @@
+-- I'm sorry. I know you wont believe me, but I am. 
+-- I love you.
+
 SWEP.Base = "tacrp_base"
 SWEP.Spawnable = true
 
